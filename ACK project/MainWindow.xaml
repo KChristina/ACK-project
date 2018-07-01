@@ -1,0 +1,111 @@
+﻿<Window x:Class="ACK_project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        
+        Title="ACK Project"
+        Height="450"
+        Width="800">
+    <TabControl>
+        <TabItem Header="Αποδείξεις">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="0"
+                            Grid.Row="0">
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Label Content="Ημερομηνία:"
+                               Width="80" />
+                        <Label Content="13-05-2018" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Label Content="Νο.:"
+                               Width="80" />
+                        <Label Content="124" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            HorizontalAlignment="Right"
+                            Margin="10"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Επώνυμο:"
+                               Width="65" />
+                        <TextBox Name="Surename_TextBox"
+                                 Width="100"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Όνομα:"
+                               Width="65" />
+                        <TextBox Width="100"
+                                 Name="Name_TextBox"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="ΑΦΜ:"
+                               Name="Afm_TextBox"
+                               Width="65" />
+                        <TextBox Width="100"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Καθαρή Αξία:"
+                               Width="85" />
+                        <TextBox Name="Value_TextBox"
+                                 Width="100"
+                                 Text="{Binding PureValue, StringFormat=C,UpdateSourceTrigger=PropertyChanged}"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Φ.Π.Α.:"
+                               Width="85" />
+                        <TextBox Width="100"
+                                 IsReadOnly="True"
+                                 Text="{Binding Tax, StringFormat=C,UpdateSourceTrigger=PropertyChanged}"
+                                 Name="Tax_TextBox"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Σύνολο:"
+                               Name="TotalPrice_TextBox"
+                               Width="85" />
+                        <TextBox Width="100"
+                                 Text="{Binding TotalPrice, StringFormat=C,UpdateSourceTrigger=PropertyChanged}"
+                                 VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="1"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                    <Button Content="Αποθήκευση"
+                            Margin="10"
+                            Name="Save_Button"
+                            HorizontalAlignment="Left" />
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
